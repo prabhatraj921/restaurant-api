@@ -10,6 +10,7 @@ use App\Http\Controllers\Restaurant\Order\OrderController;
 use App\Http\Controllers\Restaurant\Table\TableController;
 use App\Http\Middleware\Authenticate\UserAuthenticate;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\FileHandler\FileHandlerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::group([
             'resetPassword'
         ]);
     });
+/// new file for authenticated user
 Route::group([
     'prefix' => 'api/v1/user',
     'middleware' => [UserAuthenticate::class]
@@ -54,6 +56,19 @@ Route::group([
         ]);
 });
 
+/// -- new file for file handling
+Route::group([
+    'prefix' => 'api/v1/file',
+    'middleware' => [UserAuthenticate::class]
+],
+    function () {
+        Route::post('upload', [
+            FileHandlerController::class,
+            'upload'
+        ]);
+});
+
+/// -- new file for  restaurant
 Route::group([
     'prefix' => 'api/v1/restaurant',
     'middleware' => [UserAuthenticate::class]

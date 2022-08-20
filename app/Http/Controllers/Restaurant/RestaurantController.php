@@ -30,8 +30,7 @@ class RestaurantController extends Controller
     public function create(RestaurantCreateRequest $request): array
     {
         $input_data = $request->validated();
-        $this->restaurant_service->create($input_data);
-        return [];
+        return $this->restaurant_service->create($input_data);
     }
     public function update(Request $request): array
     {

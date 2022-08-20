@@ -32,6 +32,7 @@ class RestaurantCreateRequest extends FormRequest
             'logo_file_id' => 'nullable|numeric',
             'contact_number' => 'required|string',
             'ext' => 'nullable|string',
+            'user_id' => 'required|numeric',
         ];
     }
 

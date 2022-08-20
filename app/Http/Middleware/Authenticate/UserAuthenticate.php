@@ -33,7 +33,7 @@ class UserAuthenticate extends Controller
 
         $request['user'] = DB::select('call p_user_details_get(:user_id)', [
             ':user_id' => $result[0]->user_id,
-        ]);;
+        ]);
        return $next($request);
     }
 }
