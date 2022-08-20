@@ -28,7 +28,7 @@ class UserAuthenticate extends Controller
             ':auth_token' => $token,
         ]);
         if(empty($result)){
-            abort('404', 'Data Not Found');
+            abort('404', 'User Authentication Failed');
         }
 
         $request['user'] = DB::select('call p_user_details_get(:user_id)', [

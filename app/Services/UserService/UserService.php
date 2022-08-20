@@ -34,15 +34,15 @@ class UserService
         $result = DB::select('call p_user_login_check(:email)', [
             ':email' => $input_data['email'],
         ]);
-        $verify = Hash::check($input_data['password'], $result[0]->password);
-
-        if ($verify) {
-            $token = Str::random(60);
-            $this->insertUserAuthToken($result[0]->id, $token);
-            return ['status' => 0, 'message' => 'User logged in', 'auth_token' => $token];
-        } else {
-            return ['status' => -1, 'message' => 'Credentials does not match'];
+        if(!empty($result)){
+            $verify = Hash::check($input_data['password'], $result[0]->password);
+            if ($verify) {
+                $token = Str::random(60);
+                $this->insertUserAuthToken($result[0]->id, $token);
+                return ['status' => 0, 'message' => 'User logged in', 'auth_token' => $token];
+            }
         }
+            return ['status' => -1, 'message' => 'Credentials does not match'];
     }
 
     function insertUserAuthToken($user_id, $token)

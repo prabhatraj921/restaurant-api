@@ -53,15 +53,39 @@ Route::group([
             'getUserDetails'
         ]);
 });
+
 Route::group([
     'prefix' => 'api/v1/restaurant',
     'middleware' => [UserAuthenticate::class]
 ],
     function () {
-        Route::post('booking/create', [
+        Route::post('create', [
             RestaurantController::class,
             'create'
         ]);
+        Route::post('update', [
+            RestaurantController::class,
+            'update'
+        ]);
+        Route::post('get', [
+            RestaurantController::class,
+            'get'
+        ]);
+        Route::post('getAll', [
+            RestaurantController::class,
+            'getAll'
+        ]);
+        Route::post('delete-by-id', [
+            RestaurantController::class,
+            'deleteById'
+        ]);
+});
+
+Route::group([
+    'prefix' => 'api/v1/',
+    'middleware' => [UserAuthenticate::class]
+],
+    function () {
         Route::post('table/create', [
             TableController::class,
             'create'

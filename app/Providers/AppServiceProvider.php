@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\RestaurantService\RestaurantService;
 use App\Services\UserService\UserService;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind('UserService', function() {
             return new UserService();
+        });
+        $this->app->bind('RestaurantService', function() {
+            return new RestaurantService();
         });
     }
 
