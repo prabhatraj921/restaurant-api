@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\CategoryService\CategoryService;
 use App\Services\FileHandlerService\FileHandlerService;
+use App\Services\MenuService\MenuService;
 use App\Services\RestaurantService\RestaurantService;
 use App\Services\UserService\UserService;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->bind('CategoryService', function() {
             return new CategoryService();
+        });
+        $this->app->bind('MenuService', function() {
+            return new MenuService();
         });
     }
 

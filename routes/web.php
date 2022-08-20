@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\Restaurant\RestaurantController;
-use App\Http\Controllers\Restaurant\Menu\MenuController;
+use App\Http\Controllers\MenuController\MenuController;
 use App\Http\Controllers\Restaurant\Booking\BookingController;
 use App\Http\Controllers\Restaurant\Order\OrderController;
 use App\Http\Controllers\Restaurant\Table\TableController;
@@ -80,6 +80,17 @@ Route::group([
             'create'
         ]);
 });
+/// -- new file for menu handling
+Route::group([
+    'prefix' => 'api/v1/menu',
+    'middleware' => [UserAuthenticate::class]
+],
+    function () {
+        Route::post('create', [
+            MenuController::class,
+            'create'
+        ]);
+});
 
 /// -- new file for  restaurant
 Route::group([
@@ -124,10 +135,6 @@ Route::group([
         ]);
         Route::post('booking/create', [
             BookingController::class,
-            'create'
-        ]);
-        Route::post('menu/create', [
-            MenuController::class,
             'create'
         ]);
         Route::post('booking/update', [
