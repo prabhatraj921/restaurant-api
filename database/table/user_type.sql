@@ -7,5 +7,7 @@ CREATE TABLE `user_type` (
                                 `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                 PRIMARY KEY (`id`));
 
-insert into user_type(`name`,`description`) values('admin','admin');
-insert into user_type(`name`,`description`) values('restaurant owner','restaurant owner');
+insert into user_type(`name`,`description`) values('Admin','Site Admin');
+insert into user_type(`name`,`description`) values('Owner','Restaurant owner');
+INSERT INTO user_type(`name`, `description`) VALUES ('Manger', 'Restaurant manager');
+INSERT INTO user_type(`name`, `description`) VALUES ('Server', 'Restaurant server');

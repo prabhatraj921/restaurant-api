@@ -12,3 +12,5 @@ INSERT INTO `restaurant`.`file_types` (`name`, `description`) VALUES ('logo', 'r
 INSERT INTO `restaurant`.`file_types` (`name`, `description`) VALUES ('user profile pic', 'user profile pic');
 INSERT INTO `restaurant`.`file_types` (`name`, `description`) VALUES ('restro pic', 'restro  pic');
 INSERT INTO `restaurant`.`file_types` (`name`, `description`) VALUES ('food pic', 'food  pic');
+INSERT INTO `restaurant`.`file_types` (`name`, `description`) VALUES ('category pic', 'category pic');
+

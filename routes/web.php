@@ -11,6 +11,7 @@ use App\Http\Controllers\Restaurant\Table\TableController;
 use App\Http\Middleware\Authenticate\UserAuthenticate;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\FileHandler\FileHandlerController;
+use App\Http\Controllers\CategoryController\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,18 @@ Route::group([
         Route::post('upload', [
             FileHandlerController::class,
             'upload'
+        ]);
+});
+
+/// -- new file for category handling
+Route::group([
+    'prefix' => 'api/v1/category',
+    'middleware' => [UserAuthenticate::class]
+],
+    function () {
+        Route::post('create', [
+            CategoryController::class,
+            'create'
         ]);
 });
 

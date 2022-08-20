@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\CategoryService\CategoryService;
 use App\Services\FileHandlerService\FileHandlerService;
 use App\Services\RestaurantService\RestaurantService;
 use App\Services\UserService\UserService;
@@ -24,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->bind('FileHandlerService', function() {
             return new FileHandlerService();
+        });
+        $this->app->bind('CategoryService', function() {
+            return new CategoryService();
         });
     }
 

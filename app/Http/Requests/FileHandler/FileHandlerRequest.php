@@ -24,6 +24,11 @@ class FileHandlerRequest extends FormRequest
         return [
             'file' => 'required',
             'file_type_id' => 'required|numeric',
+             //1 is for logo file
+             //2 is for user profile pic
+             //3 is for restro pic
+             //4 is for foodpic
+             //5 is for category file
         ];
     }
 
