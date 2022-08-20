@@ -31,8 +31,8 @@ class FileHandlerController extends Controller
     public function upload(FileHandlerRequest $request): array
     {
         $user = $request->user[0];
-        $file = $request->validated();
-        return $this->file_handler_service->create($file, $user);
+        $file_details = $request->validated();
+        return $this->file_handler_service->upload($file_details, $user);
     }
 }
 
